@@ -359,13 +359,13 @@
   @media(min-width:640px){.slider-outer{padding:0 58px;}}
   .slider{
     display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
-    padding:6px 6px 22px;margin:0 -6px;-webkit-overflow-scrolling:touch;
+    padding:6px 16px 30px;margin:0 -16px;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;
   }
   .slider::-webkit-scrollbar{display:none;}
   .slide{
     flex:0 0 84%;scroll-snap-align:start;background:var(--white);border-radius:18px;
-    overflow:clip;border:1px solid var(--line);box-shadow:var(--shadow);
+    overflow:clip;border:1px solid var(--line);box-shadow:0 10px 22px -10px rgba(35,44,25,0.35);
   }
   @media(min-width:640px){.slide{flex-basis:58%;}}
   @media(min-width:980px){.slide{flex-basis:32.5%;}}
@@ -403,12 +403,9 @@
   /* Fade the right edge of the places slider itself (card, border and shadow all
      dissolve together) instead of pasting an opaque box on top of it. The mask is
      painted on the slider's own box, so it stays fixed at the edge as cards scroll.
-     Padding/margin give the card's own shadow room to breathe without being
-     clipped by the scroll container; the bottom value matches .dim-grid's
-     negative margin above so the dim boxes land on the card's real edge. */
+     Padding/margin that keep the shadow from clipping now live on the shared
+     .slider rule above, so every carousel gets the same safe treatment. */
   .places-slider{
-    margin:0 -16px;
-    padding:6px 16px 30px;
     -webkit-mask-image:linear-gradient(90deg, #000 0, #000 calc(100% - 34px), transparent 100%);
     mask-image:linear-gradient(90deg, #000 0, #000 calc(100% - 34px), transparent 100%);
   }
@@ -593,7 +590,7 @@
         </div>
         <div class="vstat">
           <div class="num">Hasta 4 niveles</div>
-          <div class="lbl">de construcción permitidos</div>
+          <div class="lbl">construcción permitidos</div>
         </div>
         <div class="vstat">
           <div class="num">Mixto</div>
