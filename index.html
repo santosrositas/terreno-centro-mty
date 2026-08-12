@@ -205,7 +205,7 @@
     margin:16px 0 14px;
     letter-spacing:-0.5px;
   }
-  h1 em{font-style:normal;color:var(--gold);}
+  h1 em{font-style:normal;font-weight:400;color:var(--gold);}
   .hero-desc{font-size:16px;line-height:1.65;color:var(--cream-200);max-width:560px;margin:0 0 26px;}
   .hero-desc b{color:var(--white);}
   .hero-kicker{
@@ -229,7 +229,7 @@
   .hero-visual{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);}
   .hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(0.92) contrast(1.02);}
   @media(max-width:919.98px){
-    .hero-visual{aspect-ratio:16/10;}
+    .hero-visual{aspect-ratio:4/3.2;}
   }
   .hero-visual::before{
     content:"";position:absolute;inset:0;z-index:1;
@@ -319,10 +319,11 @@
       align-items:stretch;
       column-gap:26px;row-gap:24px;
     }
-    /* min-height (not height) so align-items:stretch can actually grow the map to
-       match whatever height the text column ends up needing — a fixed height can't
-       stretch past itself, which is why the two bases kept missing each other. */
-    .map-card{grid-column:1;grid-row:1;min-height:330px;}
+    /* height:auto cancels the explicit height:320px set by the 480px breakpoint above
+       (still active here, since 920px matches that query too) — an explicit height
+       blocks align-items:stretch no matter what min-height says. min-height keeps a
+       sensible floor while letting the map actually grow to match the text column. */
+    .map-card{grid-column:1;grid-row:1;height:auto;min-height:330px;}
     /* Carousel now spans the full width of the section, under both columns */
     .places-block{grid-column:1 / -1;grid-row:2;}
     /* Stretched to the map's height, then the image+dim-cards row is pushed to the
