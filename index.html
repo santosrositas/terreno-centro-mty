@@ -218,7 +218,14 @@
   .hero-price .amount{font-size:clamp(30px,5vw,44px);font-weight:800;color:var(--white);letter-spacing:-1px;}
   .counter{font-variant-numeric:tabular-nums;}
   .hero-price .label{font-size:13px;color:var(--cream-300);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;}
-  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:6px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:6px;}
+  .hero-dossier{
+    display:inline-flex;align-items:center;gap:7px;color:var(--cream-200);
+    font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;
+    transition:color .15s ease;
+  }
+  .hero-dossier:hover{color:var(--white);}
+  .hero-dossier svg{width:16px;height:16px;flex:none;}
   @media(min-width:920px){
     .hero-inner{grid-template-columns:1.15fr 0.85fr;align-items:stretch;}
     .hero{padding:52px 0 72px;}
@@ -576,6 +583,10 @@
             </a>
           </div>
         </div>
+        <a class="hero-dossier" href="Dossier_Terreno_Centro_MTY.pdf" download="Dossier_Terreno_Centro_MTY.pdf">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Dossier básico
+        </a>
       </div>
     </div>
     <div class="hero-visual">
